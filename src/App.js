@@ -1,21 +1,30 @@
-import React, { useState, useEffect } from 'react';
+// Importing
+import React from 'react';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
+// Importing pages
+import Homepage from './components/Homepage/Homepage.jsx';
+import Login from './components/Login/Login.jsx';
+import useToken from './components/App/useToken.js';
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(0);
+  const { token, setToken } = useToken();
 
-  useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
-    });
-  }, []);
+  if(!token || token === "error") {
+    return <Login setToken={setToken} />
+  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>The current time is {currentTime}.</p>
-      </header>
-    </div>
+    <Router>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+        </Routes>
+    </Router>
   );
 }
 

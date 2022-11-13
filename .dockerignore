@@ -1,0 +1,12 @@
+###########################################################################
+# Followed guide from: https://mherman.org/blog/dockerizing-a-react-app/  #
+###########################################################################
+# Ignores files to do with the build process
+node_modules
+build
+.dockerignore
+Dockerfile
+Dockerfile.prod
+# Ignores backend and docker files
+Docker
+backend
