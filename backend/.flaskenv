@@ -1,2 +1,0 @@
-FLASK_APP=mongo_api
-FLASK_DEBUG=1
