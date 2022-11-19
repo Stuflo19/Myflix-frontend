@@ -11,10 +11,11 @@ export default function MovieCards() {
     // this useEffect will run once
     // similar to componentDidMount()
     useEffect(() => {
-      fetch("http://localhost:5000/", {
-        method: 'GET',  
-        withCredentials: true,  
-        crossorigin: true,      
+      fetch('/movies', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        },     
       })
         .then(res => res.json())
         .then(
