@@ -30,5 +30,5 @@ jobs:
           docker build --tag ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:nginx -f dockerfile.nginx .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:nginx          
           export DOCKER_CONFIG=$(cat ~/.docker/config.json | base64 -w 0)          
-          sed -i'' -e 's/DOCKERHUB_USERNAME/${{ secrets.DOCKERHUB_USERNAME }}/g' -e 's/DOCKERHUB_REPOSITORY/${{ secrets.DOCKERHUB_REPOSITORY }}/g' -e 's/IMAGE_LABEL/nginx/g' -e "s/DOCKER_CONFIG/$DOCKER_CONFIG/g" k8s.yaml          
+          sed -i'' -e 's/DOCKERHUB_USERNAME/${{ secrets.DOCKERHUB_USERNAME }}/g' -e 's/DOCKERHUB_REPOSITORY/${{ secrets.DOCKERHUB_REPOSITORY }}/g' -e 's/IMAGE_LABEL/nginx/g' -e "s/DOCKER_CONFIG/$DOCKER_CONFIG/g" deployment.yaml          
           kubectl apply -f deployment.yaml
