@@ -1,6 +1,6 @@
 name: Build and deploy Node.js app to linode
 on:
-  push:
+  pull_request:
     branches:
       - main
   workflow_dispatch:
