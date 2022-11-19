@@ -7,6 +7,3 @@ build
 .dockerignore
 Dockerfile
 Dockerfile.prod
-# Ignores backend and docker files
-Docker
-backend
