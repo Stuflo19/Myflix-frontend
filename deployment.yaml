@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: regcred
+  namespace: myflix
 data:
   .dockerconfigjson: DOCKER_CONFIG
 type: kubernetes.io/dockerconfigjson
@@ -12,6 +13,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
+  namespace: myflix
   labels:
     app: frontend
 spec:
@@ -21,6 +23,7 @@ spec:
       app: frontend
   template:
     metadata:
+      namespace: myflix
       labels:
         app: frontend
     spec:
@@ -39,6 +42,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: myflix-service
+  namespace: myflix
   labels:
     app: myflix-service
 spec:
