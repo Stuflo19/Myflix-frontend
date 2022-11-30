@@ -6,11 +6,13 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import ReactPlayer from 'react-player';
 
 // Importing pages
 import Homepage from './components/Homepage/Homepage.jsx';
 import Login from './components/Login/Login.jsx';
 import useToken from './components/App/useToken.js';
+import VideoPlayer from './components/Video_page/video.jsx';
 
 function App() {
   const { token, setToken } = useToken();
@@ -23,6 +25,7 @@ function App() {
     <Router>
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/video" element={<VideoPlayer />} />
         </Routes>
     </Router>
   );
