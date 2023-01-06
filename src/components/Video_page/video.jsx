@@ -1,37 +1,17 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import useWindowDimensions from './WindowDimensions';
 
 export default function VideoPlayer()
 {   
     const { height, width } = useWindowDimensions();
-    const [isLoaded, setIsLoaded] = useState(false);
-
-    useEffect(() => {
-    fetch('/stream', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({filename: "Danger_River"})
-    })
-    .then((response) => {
-        setIsLoaded(true);
-    })
-    }, [])
-
-    if(!isLoaded){
-        return (
-            <div>Loading...</div>
-        );
-    }
-    else{
+    const queryParams = new URLSearchParams(window.location.search);
+    const movie = queryParams.get('movie');
         return(
             <div>
                 <ReactPlayer 
-                    url={"/rtmp-server/live/Danger_River.m3u8"}
+                    url={process.env.REACT_APP_VIDEO_URL + movie + ".m3u8"}
                     playing={false}
-                    light={true}
                     controls={true}
                     width={width}
                     height={height}
@@ -41,4 +21,4 @@ export default function VideoPlayer()
             </div>
         )
     }
-}
+// }

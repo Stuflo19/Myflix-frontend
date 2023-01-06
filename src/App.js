@@ -6,7 +6,6 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import ReactPlayer from 'react-player';
 
 // Importing pages
 import Homepage from './components/Homepage/Homepage.jsx';
