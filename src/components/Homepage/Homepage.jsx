@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieCards from './MovieCards.jsx'
+import Genres from './Genres.jsx'
 import Titlebar from './Titlebar.jsx';
 
 function Homepage() {
@@ -7,7 +7,7 @@ function Homepage() {
   return (
     <div className="bcolour">
           <Titlebar />
-          <MovieCards />
+          <Genres />
     </div>
   );
 }

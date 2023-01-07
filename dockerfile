@@ -10,6 +10,8 @@ WORKDIR /app
 
 # add `/app/node_modules/.bin` to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
+ENV REACT_APP_VIDEO_URL http://172.18.0.3/vod/
+ENV REACT_APP_POSTER_URL http://172.18.0.3/thumbs/
 
 # install app dependencies
 COPY package.json ./
